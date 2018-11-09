@@ -15,8 +15,8 @@ def string_clean_df_column(df, col_name):
     # remove URLs and parantheses surrounding URLs
     df[col_name] = df[col_name].str.replace(r"(\()*https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(\))*",' ', regex=True)
 
-    # Remove non-standard characters
-    df[col_name] = df[col_name].str.replace(r"[^A-Za-z0-9(),!?@\'\`\"\_\n]", " ", regex=True)
+    # Remove non-standard characters and numbers
+    df[col_name] = df[col_name].str.replace(r"[^A-Za-z(),!?@\'\`\"\_\n]", " ", regex=True)
     df[col_name] = df[col_name].str.replace(r"@", "at", regex=True)
 
     # Strip whitespace
@@ -28,6 +28,10 @@ def string_clean_df_column(df, col_name):
     # Remove extra spaces
     df[col_name].replace(r"\s+",' ', regex=True, inplace=True)
     
-    # Drop 
+    # Drop any 
+    df[col_name].drop(index = df[df.body == 'full quote'].index, inplace=True)
     
+    # Drop other non-alphas
+    df[col_name] = df[col_name].str.replace(r"[(),!?@\'\`\"\_]", "", regex=True)
+
     return df

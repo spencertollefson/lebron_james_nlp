@@ -69,4 +69,26 @@ Then we can make our **documents (reddit comments)** have a few features and all
 ## Train / Test Split
 
 If you split data, and then do a countvectorizer on your training data. Your test data will have a matrix which is highly likely to have some words that your training data never saw. Thus, one good way in your training data matrix is to create an 'EVERYTHING ELSE' category and that would group everything else there. Thus.
-^^ Dan says to ignore this. Do fit_transform like normal on training set. and then ONLY transform on test set. Because it's native to simply ignore words in the test set it has never seen before.tt
+^^ Dan says to ignore this. Do fit_transform like normal on training set. and then ONLY transform on test set. Because it's native to simply ignore words in the test set it has never seen before.
+
+
+
+
+
+
+
+
+
+# Next steps:
+1. I want to find the X topics/clusters about these texts. Perhaps it's fitness, politics, training, performance, GOAT.
+  * Stem and lemmative better.
+  * Inclue n_grams in my grouping
+  * Continue with LDA and find then LABEL some groups that make sense.
+2. Figure out which topic each document best corresponds to, and place the document within that topic/cluster
+3. Chart a stacked-bar or a multi-line chart for each year (or month, or something else) from 2011-2018, and show
+   the PERCENTAGE (Or COUNT) of each topic for that period of time.
+4. Look at the insights! What does that mean?
+5. Perhaps do sentiment analysis. See if I can find a well-trained model. Or train my own based on upvote? score? (Probably not doing this)
+
+**NOTE**: Simply do LDA first, and make this work. Get a chart. Get some insights.
+**THEN:** Make it repeatable. Get it in a function somehow. Try other Dim Red and Unclassifying and Topic modeling techniques. See what works best.
