@@ -32,8 +32,6 @@ I identified two possible solutions. One was using Google's BigQuery to obtain t
 
 I chose my second option, which was using [Pushshift.io](https://pushshift.io/). Pushshift is a service that catalogs more reddit info than the reddit API uses. Combining a Python Library for interacting with Pushshift called [PSAW](https://praw.readthedocs.io/en/latest/), I was able to download the all the comments I wanted from 2011-2018. Unsure why I could not go back to 2008, but the 45,000 comments I collected was enough data to work with.
 
-I plan to eventually create a table like the following:
-
 comment_text | created_time     | reddit_score | comment_author | parent_submission_text | parent_author |
 ------------ | --------         | ------------ | -----------    | ---------              | ---------     |
 string       | datetime         | int          | string         | float                  | float         | 
@@ -49,7 +47,7 @@ Finally, I performed a sentiment polarity analysis on the dataset using the NLTK
 
 # What I would do differently
 
-I would have change my dataset constraints. The first change would be to extract all highly up voted comments from [r/nba](https://www.reddit.com/r/nba) that contained LeBron or a variation of his name. Secondly, I would require all comments selected have at least 25 or so words. I believe this would filter out many of the jokes/puns/quips/one-liners that occupied much of my dataset and for my use case essentially amounted to unwanted noise.
+I would change my dataset constraints. The first change would be to extract all highly up voted comments from [r/nba](https://www.reddit.com/r/nba) that contained LeBron or a variation of his name. Secondly, I would require all comments selected have at least 25 or so words. I believe this would filter out many of the jokes/puns/quips/one-liners that occupied much of my dataset and for my use case essentially amounted to unwanted noise.
 
 With this new data, I would want to improve upon the topic modeling. By either improving LDA results or finding better topics from NMF or other algorithms my comments would be better assigned to like categories.
 
