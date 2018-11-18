@@ -68,7 +68,6 @@ Finally, think more about a use for a well functioning NLP pipeline with this da
 `plot_creation_notebook.ipynb` | Creates all plots used in presentation and blog post.
 `reddit_api.ipynb` | Script to gather reddit comments using Pushshift.io and Reddit API and save them to a csv file as the "raw" data for this project.
 `data/` | Directory contains raw and cleaned data.
-`images/`| Directory containing images used in presentation and blog post.
 `legacy_ideas` | Code that was used in early analysis to had down a few different paths, but ultimately not implemented in final models or plots. This is messy and unfinished.
 `pickled_models/` | This folder contains best version of all classifying models created (SK-Learn) pickled in `.joblib` format.
 `plots/` | This folder contains saved plot images created in `plot_creation_notebook.ipynb`. These images are mostly used in the presentation and blog post.
